@@ -42,3 +42,46 @@ const calcTempAmplitude = function (temps) {
 console.log(
   `Ampltitude of the temperature is: ${calcTempAmplitude(temperatures)}`
 );
+
+//Problem 2:
+//Function should now receive 2 arrays of temps
+
+//1) Understanding the problem
+//- With 2 arrays, should we implement funcitonality twice? NO! Just merge two arrays
+
+//2) Breaking up into sub-problems
+//-Merge 2 arrays?
+
+const calcTempAmplitudeNew = function (t1, t2) {
+//   const array1 = ["a", "b", "c"];
+//   const array2 = ["d", "e", "f"];
+//   const array3 = array1.concat(array2);
+
+  const temps = t1.concat(t2);
+  console.log(temps);
+
+  let max = temps[0];
+  let min = temps[0];
+
+  for (let i = 1; i < temps.length; i++) {
+    let curTemp = temps[i];
+    if (typeof curTemp !== "number") continue;
+
+    if (curTemp > max) {
+      max = curTemp;
+    }
+
+    if (curTemp < min) {
+      min = curTemp[i];
+    }
+  }
+  console.log(`Maximum is: ${max} and Minimum is: ${min}`);
+  return max - min;
+};
+
+console.log(
+  `Ampltitude of the Newtemperature is: ${calcTempAmplitudeNew(
+    [2, 3, 5],
+    [5, 6, 7]
+  )}`
+);
